@@ -12,6 +12,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="hero-banner.jpg" fetchpriority="high">
+<script>(function(){try{if(localStorage.getItem('rt-theme')==='light'){document.documentElement.classList.add('light')}}catch(e){}})();</script>
 <meta name="referrer" content="no-referrer-when-downgrade">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rakhzaar Tech">
@@ -34,12 +36,21 @@
   "telephone": "+92-318-7579301",
   "address": { "@type": "PostalAddress", "addressLocality": "Lahore", "addressCountry": "PK" },
   "founder": { "@type": "Person", "name": "Usman Kalera" },
-  "review": {
-    "@type": "Review",
-    "author": { "@type": "Person", "name": "Hamza Nazeer" },
-    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-    "reviewBody": "It was really a good experience we receive our website on time"
-  }
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "2" },
+  "review": [
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Hamza Nazeer" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "It was really a good experience we receive our website on time"
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Muhammad Hassan" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "I am very well satisfied because I received my website completed on time"
+    }
+  ]
 }
 </script>
 <style>
@@ -209,6 +220,31 @@
   .wa-float:hover{transform:scale(1.07)}
   .showcase img,.section-banner img{transition:transform .7s ease}
   .showcase:hover img,.section-banner:hover img{transform:scale(1.03)}
+
+  /* Theme toggle + light theme + featured project */
+  .theme-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);background:transparent;font-size:1.02rem;cursor:pointer;transition:border-color .15s ease,transform .15s ease}
+  .theme-btn:hover{border-color:var(--amber);transform:translateY(-1px)}
+  .feature-card{display:grid;grid-template-columns:1.12fr .88fr;border:1px solid var(--line2);border-radius:22px;overflow:hidden;background:linear-gradient(180deg,var(--surface2),var(--surface));margin-bottom:22px}
+  .feature-card img{width:100%;height:100%;min-height:290px;object-fit:cover;display:block}
+  .fc-body{padding:36px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+  .fc-body h3{font-size:1.55rem;letter-spacing:-.02em;margin-bottom:10px}
+  .fc-body p{color:var(--muted)}
+  .fc-badge{background:rgba(245,165,36,.12);border:1px solid rgba(245,165,36,.42);color:var(--amber);font-size:.73rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:16px}
+  @media (max-width:840px){ .feature-card{grid-template-columns:1fr} .feature-card img{min-height:200px;max-height:250px} .fc-body{padding:26px} }
+  html.light{--bg:#f5f5f1;--bg2:#ffffff;--surface:rgba(18,18,24,.05);--surface2:rgba(18,18,24,.075);--line:rgba(18,18,24,.13);--line2:rgba(18,18,24,.24);--text:#141419;--muted:#54545e;--muted2:#83838e}
+  html.light body::before{background:radial-gradient(760px 380px at 16% 6%,rgba(87,160,255,.10),transparent 65%),radial-gradient(860px 440px at 86% 14%,rgba(245,165,36,.13),transparent 68%),linear-gradient(180deg,rgba(255,255,255,.15),rgba(245,245,241,.55))}
+  html.light #ai-bg3d{opacity:.25}
+  html.light header{background:rgba(255,255,255,.86)}
+  html.light .badge{background:rgba(18,18,24,.045)}
+  html.light .browser-card{background:linear-gradient(160deg,#ffffff,#efeee8)}
+  html.light .browser-bar{background:rgba(18,18,24,.045)}
+  html.light .visual-row div{background:rgba(18,18,24,.035)}
+  html.light .float-chip{background:rgba(255,255,255,.94);color:#141419}
+  html.light .tag{background:rgba(18,18,24,.045)}
+  html.light .form-box input,html.light .form-box select,html.light .form-box textarea{background:rgba(18,18,24,.03)}
+  html.light .form-box select option{background:#ffffff;color:#141419}
+  html.light footer{background:rgba(18,18,24,.025)}
+  html.light .review{background:linear-gradient(180deg,rgba(245,165,36,.13),rgba(18,18,24,.03))}
   /* Real banner imagery + alignment polish */
   .hero-img{display:block;width:100%;height:auto;aspect-ratio:16/9.4;object-fit:cover}
   .showcase{margin:58px 0 0;border-radius:22px;overflow:hidden;border:1px solid var(--line2);box-shadow:0 30px 70px rgba(0,0,0,.42)}
@@ -260,6 +296,7 @@
       <a href="#reviews">Reviews</a>
       <a href="#founder">Founder</a>
       <a href="#join">Join Us</a>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch light or dark theme">☀️</button>
       <a class="btn" href="#start">Start a project</a>
     </nav>
   </div>
@@ -284,7 +321,7 @@
         <div class="hero-visual" aria-hidden="true">
           <div class="browser-card">
             <div class="browser-bar"><span></span><span></span><span></span><em>rakhzaar-tech — studio dashboard</em></div>
-            <img class="hero-img" src="hero-banner.jpg" alt="AI workspace at Rakhzaar Tech" width="1400" height="787">
+            <img class="hero-img" fetchpriority="high" src="hero-banner.jpg" alt="AI workspace at Rakhzaar Tech" width="1400" height="787">
             <div class="visual-row">
               <div><b>AI Video Ads</b><small>from $5</small></div>
               <div><b>Websites</b><small>fast &amp; modern</small></div>
@@ -297,7 +334,7 @@
       </div>
       <div class="stats">
         <div class="stat"><b>12<em>+</em></b><small>Projects shipped</small></div>
-        <div class="stat"><b>5.0 <em>★</em></b><small>First client rating</small></div>
+        <div class="stat"><b>5.0 <em>★</em></b><small>Client rating</small></div>
         <div class="stat"><b>100<em>%</em></b><small>On-time delivery</small></div>
       </div>
       <figure class="showcase"><img src="work-banner.jpg" alt="Connected smart city — the future Rakhzaar Tech builds for" width="1400" height="787" loading="lazy"></figure>
@@ -404,16 +441,21 @@
         <h2>Recent work</h2>
         <p>Real projects, live on the web — open them and see for yourself.</p>
       </div>
+      <article class="feature-card">
+        <img src="face-thumb.jpg" alt="Face Mapping Lab — golden neural face mesh" width="1200" height="675" loading="lazy">
+        <div class="fc-body">
+          <span class="fc-badge">Featured project</span>
+          <h3>Face Mapping Lab</h3>
+          <p>Interactive computer-vision lab: 68-point face landmarks, a 478-point neural mesh, full-body pose tracking and live face-ID training — all running in the browser.</p>
+          <div><span class="tag">Computer vision</span><span class="tag">Face ID</span><span class="tag">Pose tracking</span></div>
+          <a class="work-link" href="https://usmankalera-dev.github.io/face-mapping/" target="_blank" rel="noopener">Visit live →</a>
+        </div>
+      </article>
       <div class="grid">
         <div class="card">
           <h3>SajjadTrans.com</h3>
           <p>Bilingual business website for a scrap-buying and transportation company in Jeddah, Saudi Arabia.</p>
           <div><span class="tag">Business website</span><span class="tag">EN / AR</span></div>
-        </div>
-        <div class="card">
-          <h3>Face Mapping Lab</h3>
-          <p>Interactive computer-vision lab: 68-point face landmarks, a 478-point neural mesh, full-body pose tracking and live face-ID training.</p>
-          <a class="work-link" href="https://usmankalera-dev.github.io/face-mapping/" target="_blank" rel="noopener">Visit live →</a>
         </div>
         <div class="card">
           <h3>Traffic Violation Detection</h3>
@@ -756,7 +798,7 @@
 
   // Professional scroll-reveal (subtle, reduced-motion safe)
   (function () {
-    var els = document.querySelectorAll('.card, .step, .review, .form-box, .stat, .browser-card, .showcase, .section-banner, .faq-list details, .founder img, .founder .txt');
+    var els = document.querySelectorAll('.card, .step, .review, .feature-card, .form-box, .stat, .browser-card, .showcase, .section-banner, .faq-list details, .founder img, .founder .txt');
     els.forEach(function (el, i) {
       el.classList.add('reveal');
       el.style.transitionDelay = ((i % 3) * 70) + 'ms';
@@ -771,6 +813,19 @@
       });
     }, { threshold: 0.1 });
     els.forEach(function (el) { io.observe(el); });
+  })();
+
+  // Light/dark theme toggle (choice saved in the visitor's browser)
+  (function () {
+    var btn = document.getElementById('themeBtn');
+    if (!btn) return;
+    function sync() { btn.textContent = document.documentElement.classList.contains('light') ? '🌙' : '☀️'; }
+    btn.addEventListener('click', function () {
+      var light = document.documentElement.classList.toggle('light');
+      try { localStorage.setItem('rt-theme', light ? 'light' : 'dark'); } catch (e) {}
+      sync();
+    });
+    sync();
   })();
 </script>
 </body>
