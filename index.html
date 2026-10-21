@@ -18,11 +18,11 @@
 <meta property="og:title" content="Rakhzaar Tech — Web & AI Studio in Lahore">
 <meta property="og:description" content="Websites, AI video ads and AI prototypes for small businesses — delivered on time, at honest prices.">
 <meta property="og:url" content="https://usmankalera-dev.github.io/rakhzaar-tech/">
-<meta property="og:image" content="https://usmankalera-dev.github.io/rakhzaar-tech/photo.jpg">
+<meta property="og:image" content="https://usmankalera-dev.github.io/rakhzaar-tech/hero-banner.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Rakhzaar Tech — Web & AI Studio in Lahore">
 <meta name="twitter:description" content="Websites, AI video ads and AI prototypes for small businesses — delivered on time, at honest prices.">
-<meta name="twitter:image" content="https://usmankalera-dev.github.io/rakhzaar-tech/photo.jpg">
+<meta name="twitter:image" content="https://usmankalera-dev.github.io/rakhzaar-tech/hero-banner.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0f'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='34' font-weight='bold' fill='%23f5a524' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
 {
@@ -189,6 +189,26 @@
     .footer-grid{grid-template-columns:1fr}
   }
 
+
+  /* Pricing, FAQ, reviews grid, WhatsApp float */
+  .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;max-width:1020px}
+  .reviews-grid .review{max-width:none;margin:0}
+  .price-card{position:relative;display:flex;flex-direction:column}
+  .price-card .amount{font-size:2.3rem;font-weight:800;letter-spacing:-.03em;margin:6px 0 4px}
+  .price-card ul{list-style:none;margin:12px 0 22px}
+  .price-card li{color:var(--muted);padding:6px 0 6px 26px;position:relative;font-size:.96rem}
+  .price-card li::before{content:"✓";position:absolute;left:0;color:var(--amber);font-weight:700}
+  .price-card .btn{margin-top:auto;text-align:center}
+  .price-card.hot{border-color:rgba(245,165,36,.55)}
+  .hot-badge{position:absolute;top:-13px;right:22px;background:var(--amber);color:#16130a;font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+  .faq-list{max-width:780px}
+  .faq-list details{background:linear-gradient(180deg,var(--surface2),var(--surface));border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px}
+  .faq-list summary{cursor:pointer;font-weight:600;font-size:1rem}
+  .faq-list details p{color:var(--muted);margin-top:9px;font-size:.96rem}
+  .wa-float{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 32px rgba(0,0,0,.45);transition:transform .16s ease}
+  .wa-float:hover{transform:scale(1.07)}
+  .showcase img,.section-banner img{transition:transform .7s ease}
+  .showcase:hover img,.section-banner:hover img{transform:scale(1.03)}
   /* Real banner imagery + alignment polish */
   .hero-img{display:block;width:100%;height:auto;aspect-ratio:16/9.4;object-fit:cover}
   .showcase{margin:58px 0 0;border-radius:22px;overflow:hidden;border:1px solid var(--line2);box-shadow:0 30px 70px rgba(0,0,0,.42)}
@@ -212,6 +232,18 @@
     html{scroll-behavior:auto}
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What services does Rakhzaar Tech offer?", "acceptedAnswer": {"@type": "Answer", "text": "Website design and development, AI video advertisements and reels with Urdu/English voiceovers, and AI prototyping and automation."}},
+    {"@type": "Question", "name": "How much do you charge?", "acceptedAnswer": {"@type": "Answer", "text": "AI video ads start at $5 — Basic $5, Standard $10, Premium $20. Websites and AI prototypes are quoted per project before work starts."}},
+    {"@type": "Question", "name": "How do we start a project?", "acceptedAnswer": {"@type": "Answer", "text": "Fill in the Start a Project form or message us on WhatsApp at +92 318 7579301 — we usually reply within a day."}},
+    {"@type": "Question", "name": "Do you work with Pakistani clients?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — most of our video-ad work is for Pakistani small businesses selling on WhatsApp and social media, and we also serve clients in Saudi Arabia."}}
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -223,6 +255,7 @@
     <a class="logo" href="#top"><span class="logo-mark">R</span>Rakhzaar <span>Tech</span></a>
     <nav class="nav-links">
       <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
       <a href="#work">Work</a>
       <a href="#reviews">Reviews</a>
       <a href="#founder">Founder</a>
@@ -299,6 +332,53 @@
     </div>
   </section>
 
+  <!-- PRICING -->
+  <section id="pricing" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Pricing</span>
+        <h2>AI Video Ads — simple packages</h2>
+        <p>Clear prices, no hidden charges. Websites and AI prototypes are quoted per project — <a href="#start">ask for a quote</a>.</p>
+      </div>
+      <div class="grid">
+        <div class="card price-card">
+          <h3>Basic</h3>
+          <div class="amount">$5</div>
+          <ul>
+            <li>1 AI short video (up to 15s)</li>
+            <li>1 revision</li>
+            <li>Delivery in 2 days</li>
+          </ul>
+          <a class="btn ghost" href="#start">Order Basic</a>
+        </div>
+        <div class="card price-card hot">
+          <span class="hot-badge">Most popular</span>
+          <h3>Standard</h3>
+          <div class="amount">$10</div>
+          <ul>
+            <li>1 AI video ad (up to 30s)</li>
+            <li>Urdu / English voiceover</li>
+            <li>2 revisions</li>
+            <li>Delivery in 3 days</li>
+          </ul>
+          <a class="btn" href="#start">Order Standard</a>
+        </div>
+        <div class="card price-card">
+          <h3>Premium</h3>
+          <div class="amount">$20</div>
+          <ul>
+            <li>1 AI video ad (up to 60s)</li>
+            <li>Urdu / English voiceover + subtitles</li>
+            <li>3 revisions</li>
+            <li>Priority delivery</li>
+          </ul>
+          <a class="btn ghost" href="#start">Order Premium</a>
+        </div>
+      </div>
+      <p style="text-align:center;color:var(--muted);margin-top:26px">Prefer Fiverr? Order the same packages on <a href="https://www.fiverr.com/usman0_kalera" target="_blank" rel="noopener">Fiverr — usman0_kalera</a>.</p>
+    </div>
+  </section>
+
   <!-- PROCESS -->
   <section style="padding-top:0">
     <div class="wrap">
@@ -367,10 +447,17 @@
         <h2>Client reviews</h2>
         <p>Real words from a real client — nothing invented.</p>
       </div>
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <blockquote>“It was really a good experience we receive our website on time”</blockquote>
-        <cite>— Hamza Nazeer · Website Development client</cite>
+      <div class="reviews-grid">
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <blockquote>“It was really a good experience we receive our website on time”</blockquote>
+          <cite>— Hamza Nazeer · Website Development client</cite>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <blockquote>“I am very well satisfied because I received my website completed on time ☺️”</blockquote>
+          <cite>— Muhammad Hassan · Website client</cite>
+        </div>
       </div>
     </div>
   </section>
@@ -421,6 +508,23 @@
       <p style="text-align:center;color:var(--muted);margin-top:26px">Everyone on the team brings: <b style="color:var(--text)">proof of work · clear communication · remote readiness · ownership · teamwork</b></p>
       <p class="selected-note" id="roleNote">No role selected yet — pick one above.</p>
       <p style="text-align:center"><button class="btn" id="applyBtn" disabled style="opacity:.55">Select a role first</button></p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Common questions</h2>
+        <p>Quick answers before you message us.</p>
+      </div>
+      <div class="faq-list">
+        <details><summary>What services do you offer?</summary><p>Website design and development, AI video advertisements and reels with Urdu/English voiceovers, and AI prototyping and automation.</p></details>
+        <details><summary>How much do you charge?</summary><p>AI video ads start at $5 — Basic $5, Standard $10, Premium $20 (see Pricing above). Websites and AI prototypes are quoted per project before work starts, so you always know the price first.</p></details>
+        <details><summary>How do we start a project?</summary><p>Fill in the Start a Project form below or message us directly on WhatsApp — we usually reply within a day.</p></details>
+        <details><summary>Do you work with Pakistani clients?</summary><p>Yes — most of our video-ad work is for Pakistani small businesses selling on WhatsApp and social media, and we also serve clients in Saudi Arabia.</p></details>
+      </div>
     </div>
   </section>
 
@@ -496,10 +600,14 @@
     </div>
     <div class="footer-bar">
       <span>© 2026 Rakhzaar Tech · Founded by Usman Kalera</span>
-      <span>Websites · AI Video Ads · AI Prototypes</span>
+      <span>Websites · AI Video Ads · AI Prototypes · <a href="#top" style="display:inline;color:var(--amber)">Back to top ↑</a></span>
     </div>
   </div>
 </footer>
+
+<a class="wa-float" href="https://wa.me/923187579301?text=Assalam-o-Alaikum!%20I%20have%20a%20question%20about%20Rakhzaar%20Tech%20services." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="#fff" d="M16 3C9.4 3 4 8.3 4 14.9c0 2.4.7 4.6 2 6.5L4 29l7.8-2c1.3.6 2.7.9 4.2.9 6.6 0 12-5.3 12-11.9S22.6 3 16 3Zm5.9 16.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2.1 1c.3.2.5.3.6.4 0 .1 0 .7-.2 1.2Z"/></svg>
+</a>
 
 <script>
   // Project brief -> WhatsApp (prefilled, opens wa.me)
@@ -648,7 +756,7 @@
 
   // Professional scroll-reveal (subtle, reduced-motion safe)
   (function () {
-    var els = document.querySelectorAll('.card, .step, .review, .form-box, .stat, .browser-card, .showcase, .section-banner, .founder img, .founder .txt');
+    var els = document.querySelectorAll('.card, .step, .review, .form-box, .stat, .browser-card, .showcase, .section-banner, .faq-list details, .founder img, .founder .txt');
     els.forEach(function (el, i) {
       el.classList.add('reveal');
       el.style.transitionDelay = ((i % 3) * 70) + 'ms';
