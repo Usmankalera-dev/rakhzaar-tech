@@ -194,7 +194,6 @@
     .footer-grid{grid-template-columns:1fr 1fr}
   }
   @media (max-width:720px){
-    .nav-links a:not(.btn){display:none}
     section{padding:64px 0}
     .stat{padding-right:26px;margin-right:26px}
     .footer-grid{grid-template-columns:1fr}
@@ -245,6 +244,32 @@
   html.light .form-box select option{background:#ffffff;color:#141419}
   html.light footer{background:rgba(18,18,24,.025)}
   html.light .review{background:linear-gradient(180deg,rgba(245,165,36,.13),rgba(18,18,24,.03))}
+
+  /* Responsive navigation + mobile action bar + friendly touches */
+  .nav-toggle{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line2);background:transparent;color:var(--text);font-size:1.22rem;cursor:pointer;align-items:center;justify-content:center}
+  .mobile-bar{display:none}
+  :focus-visible{outline:2px solid var(--amber);outline-offset:2px;border-radius:4px}
+  html,body{overflow-x:clip}
+  section[id]{scroll-margin-top:84px}
+  .form-box input,.form-box select,.form-box textarea{font-size:16px}
+  .reviews-grid{grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))}
+  @media (min-width:1440px){ .wrap{max-width:1280px} }
+  @media (max-width:860px){
+    .nav{position:relative}
+    .nav-toggle{display:inline-flex}
+    .nav-links{position:absolute;top:calc(100% + 10px);left:0;right:0;flex-direction:column;align-items:stretch;gap:2px;background:var(--bg2);border:1px solid var(--line2);border-radius:16px;padding:10px;box-shadow:0 30px 60px rgba(0,0,0,.35);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .18s ease,transform .18s ease,visibility .18s;z-index:70}
+    .nav-links.open{opacity:1;visibility:visible;transform:none}
+    .nav-links a:not(.btn){display:block;padding:13px 14px;border-radius:10px;font-size:1rem;color:var(--text)}
+    .nav-links a:not(.btn):hover{background:var(--surface)}
+    .nav-links .theme-btn{margin:6px 4px}
+    .nav-links a.btn{margin-top:6px;text-align:center;padding:14px}
+    .wa-float{display:none}
+    .mobile-bar{display:flex;gap:10px;position:fixed;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:65;background:var(--bg2);background:color-mix(in srgb,var(--bg2) 88%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line2);border-radius:16px;padding:10px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+    .mobile-bar a{flex:1;text-align:center;padding:13px 10px;border-radius:11px;font-weight:600;font-size:.98rem}
+    .mb-start{background:var(--amber);color:#16130a}
+    .mb-wa{border:1px solid #25d366;color:#25d366}
+    body{padding-bottom:88px}
+  }
   /* Real banner imagery + alignment polish */
   .hero-img{display:block;width:100%;height:auto;aspect-ratio:16/9.4;object-fit:cover}
   .showcase{margin:58px 0 0;border-radius:22px;overflow:hidden;border:1px solid var(--line2);box-shadow:0 30px 70px rgba(0,0,0,.42)}
@@ -289,7 +314,8 @@
 <header>
   <div class="wrap nav">
     <a class="logo" href="#top"><span class="logo-mark">R</span>Rakhzaar <span>Tech</span></a>
-    <nav class="nav-links">
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">☰</button>
+    <nav class="nav-links" id="siteNav">
       <a href="#services">Services</a>
       <a href="#pricing">Pricing</a>
       <a href="#work">Work</a>
@@ -827,6 +853,28 @@
     });
     sync();
   })();
+
+  // Mobile menu (hamburger)
+  (function () {
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('siteNav');
+    if (!toggle || !nav) return;
+    function close() { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); toggle.textContent = '☰'; }
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.textContent = open ? '✕' : '☰';
+    });
+    nav.addEventListener('click', function (e) { if (e.target.closest('a')) close(); });
+    document.addEventListener('click', function (e) { if (!nav.contains(e.target)) close(); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 860) close(); });
+  })();
 </script>
+
+<div class="mobile-bar">
+  <a class="mb-wa" href="https://wa.me/923187579301?text=Assalam-o-Alaikum!%20I%20have%20a%20question%20about%20Rakhzaar%20Tech%20services." target="_blank" rel="noopener">💬 WhatsApp</a>
+  <a class="mb-start" href="#start">Start a project</a>
+</div>
 </body>
 </html>
