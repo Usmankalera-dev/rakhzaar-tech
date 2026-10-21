@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a0e">
 <title>Rakhzaar Tech — Web & AI Studio in Lahore | Websites, AI Video Ads, AI Prototyping</title>
 <meta name="description" content="Rakhzaar Tech is a web and AI studio in Lahore, Pakistan. We build fast websites, AI video ads and AI prototypes for small businesses — delivered on time, at honest prices.">
 <meta name="robots" content="index, follow">
@@ -270,6 +271,12 @@
     .mb-wa{border:1px solid #25d366;color:#25d366}
     body{padding-bottom:88px}
   }
+
+  /* Result metrics, toolbox strip */
+  .metric{color:var(--amber);font-weight:600;font-size:.92rem;margin-top:12px}
+  .stack-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
+  .stack-row .tag{padding:8px 16px;font-size:.9rem}
+  .stack-label{color:var(--muted2);font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-right:6px}
   /* Real banner imagery + alignment polish */
   .hero-img{display:block;width:100%;height:auto;aspect-ratio:16/9.4;object-fit:cover}
   .showcase{margin:58px 0 0;border-radius:22px;overflow:hidden;border:1px solid var(--line2);box-shadow:0 30px 70px rgba(0,0,0,.42)}
@@ -359,9 +366,9 @@
         </div>
       </div>
       <div class="stats">
-        <div class="stat"><b>12<em>+</em></b><small>Projects shipped</small></div>
-        <div class="stat"><b>5.0 <em>★</em></b><small>Client rating</small></div>
-        <div class="stat"><b>100<em>%</em></b><small>On-time delivery</small></div>
+        <div class="stat"><b><span class="count" data-to="12">12</span><em>+</em></b><small>Projects shipped</small></div>
+        <div class="stat"><b><span class="count" data-to="5" data-dec="1">5.0</span> <em>★</em></b><small>Client rating</small></div>
+        <div class="stat"><b><span class="count" data-to="100">100</span><em>%</em></b><small>On-time delivery</small></div>
       </div>
       <figure class="showcase"><img src="work-banner.jpg" alt="Connected smart city — the future Rakhzaar Tech builds for" width="1400" height="787" loading="lazy"></figure>
     </div>
@@ -391,6 +398,16 @@
           <p>Working AI prototypes — detection systems, dashboards, chat and content tools — so you can test an idea before investing heavily.</p>
           <div class="price">From idea to demo in days</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLBOX -->
+  <section style="padding:0 0 8px">
+    <div class="wrap">
+      <div class="stack-row">
+        <span class="stack-label">Our toolbox</span>
+        <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">OpenCV</span><span class="tag">YOLOv8</span><span class="tag">Three.js</span><span class="tag">HTML / CSS</span><span class="tag">WordPress</span><span class="tag">GitHub</span>
       </div>
     </div>
   </section>
@@ -482,28 +499,67 @@
           <h3>SajjadTrans.com</h3>
           <p>Bilingual business website for a scrap-buying and transportation company in Jeddah, Saudi Arabia.</p>
           <div><span class="tag">Business website</span><span class="tag">EN / AR</span></div>
+          <p class="metric">Delivered for a live client in Jeddah</p>
         </div>
         <div class="card">
           <h3>Traffic Violation Detection</h3>
           <p>AI pipeline that detects red-light violations from video using YOLOv8 object detection and a smart signal reader.</p>
           <div><span class="tag">Computer vision</span><span class="tag">YOLOv8</span></div>
+          <p class="metric">8 violations caught in road-test footage</p>
         </div>
         <div class="card">
           <h3>AI Fire Alarm System</h3>
           <p>Real-time flame detection with a live demo dashboard and alarm — computer vision that reacts in seconds.</p>
+          <p class="metric">All 6 system tests passed · live demo</p>
           <a class="work-link" href="https://usmankalera-dev.github.io/fire-alarm-system/" target="_blank" rel="noopener">Visit live →</a>
         </div>
         <div class="card">
           <h3>Fall Detection System</h3>
           <p>Pose-based fall detection for elderly safety — watches body keypoints and raises an alert with evidence when a fall happens.</p>
+          <p class="metric">Fall flagged in 5.5s on real test footage</p>
           <a class="work-link" href="https://github.com/Usmankalera-dev/fall-detection-system" target="_blank" rel="noopener">View code →</a>
         </div>
         <div class="card">
           <h3>SeekhoWebDev</h3>
           <p>A free course website teaching HTML, CSS and JavaScript with 35 lessons, quizzes and a live code playground.</p>
+          <p class="metric">35 lessons · 100% free for learners</p>
           <a class="work-link" href="https://usmankalera-dev.github.io/seekho-webdev/" target="_blank" rel="noopener">Visit live →</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Research</span>
+        <h2>Published research</h2>
+        <p>Open research by our founder, Usman Kalera — published with DOIs on Zenodo &amp; Figshare (CC BY 4.0). ORCID: 0009-0003-5273-177X.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Switch-Point Prosody: Pitch Variability as a Marker of Code-Switch Boundaries in TTS</h3>
+          <p>Urdu–English code-switched speech: measured pitch variability at switch points (51.9 vs 29.8 Hz), with a reproducible 3-phase protocol.</p>
+          <a class="work-link" href="https://doi.org/10.5281/zenodo.23368075" target="_blank" rel="noopener">Read · DOI 10.5281/zenodo.23368075 →</a>
+        </div>
+        <div class="card">
+          <h3>Do AI-Generated Video Advertisements Work for Pakistan's Small Businesses?</h3>
+          <p>An honest experimental design for testing whether AI-generated video ads actually work for small businesses in Pakistan.</p>
+          <a class="work-link" href="https://doi.org/10.5281/zenodo.23368307" target="_blank" rel="noopener">Read · DOI 10.5281/zenodo.23368307 →</a>
+        </div>
+        <div class="card">
+          <h3>LinkedIn Identity Verification and Pakistan's CNIC Holders</h3>
+          <p>Why LinkedIn's identity verification fails for Pakistani CNIC holders — and what it means for professional access.</p>
+          <a class="work-link" href="https://doi.org/10.5281/zenodo.23372052" target="_blank" rel="noopener">Read · DOI 10.5281/zenodo.23372052 →</a>
+        </div>
+        <div class="card">
+          <h3>Node-Level Identity Attention for Multi-Face Frames: A Controlled Landmark-Graph Study</h3>
+          <p>Phase 2 controlled study: face-association accuracy improved from 0.620 to 1.000 across 200 trials per condition, with honest limitations.</p>
+          <a class="work-link" href="https://doi.org/10.5281/zenodo.23376168" target="_blank" rel="noopener">Read · DOI 10.5281/zenodo.23376168 →</a>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:28px"><a class="work-link" href="https://usmankalera-dev.github.io/research-papers/" target="_blank" rel="noopener">Browse all research →</a></p>
     </div>
   </section>
 
@@ -655,6 +711,7 @@
       <div>
         <h4>Company</h4>
         <a href="#work">Our work</a>
+        <a href="#research">Research</a>
         <a href="#reviews">Reviews</a>
         <a href="#founder">Founder</a>
         <a href="#join">Join the team</a>
@@ -869,6 +926,31 @@
     nav.addEventListener('click', function (e) { if (e.target.closest('a')) close(); });
     document.addEventListener('click', function (e) { if (!nav.contains(e.target)) close(); });
     window.addEventListener('resize', function () { if (window.innerWidth > 860) close(); });
+  })();
+
+  // Animated stat counters (final values stay as the no-JS fallback)
+  (function () {
+    var nums = document.querySelectorAll('.count');
+    if (!nums.length || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target; io.unobserve(el);
+        var to = parseFloat(el.getAttribute('data-to'));
+        var dec = parseInt(el.getAttribute('data-dec') || '0', 10);
+        var t0 = null;
+        function step(ts) {
+          if (!t0) t0 = ts;
+          var pr = Math.min((ts - t0) / 1000, 1);
+          var eased = 1 - Math.pow(1 - pr, 3);
+          el.textContent = (to * eased).toFixed(dec);
+          if (pr < 1) requestAnimationFrame(step); else el.textContent = to.toFixed(dec);
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.4 });
+    nums.forEach(function (el) { io.observe(el); });
   })();
 </script>
 
